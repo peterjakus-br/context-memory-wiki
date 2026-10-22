@@ -25,3 +25,6 @@ Updated on every ingest. See [[overview]] for the big picture.
 
 ## Unprocessed
 
+- `raw/2026-10-22-actor-gatherer-framework-blog.html`
+- `raw/2026-10-22-actor-gatherer-docs.html`
+- `raw/repos/2026-10-22-ucbepic-actor-gatherer.md`
