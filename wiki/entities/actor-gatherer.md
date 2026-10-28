@@ -2,7 +2,7 @@
 title: "Actor-Gatherer"
 type: entity
 created: 2026-10-22
-updated: 2026-10-22
+updated: 2026-10-28
 tags: [framework, context-management, multi-agent]
 sources: [actor-gatherer-framework-blog, actor-gatherer-docs, repo-ucbepic-actor-gatherer]
 ---
@@ -57,3 +57,6 @@ the agent rather than fetched by it, which is aimed at
   [[scroll]] — baselines it is compared against
 - [[context-compaction]], [[tool-based-context-management]] — the two
   approaches it positions itself against
+- [[retrieval-augmented-memory]], [[raw-rag]] — a later paper on retrieval-based memory whose
+  conversation-benchmark results are set against the blog's claims about retrieved summaries
+  (see the contradiction entry on [[retrieval-augmented-memory]])

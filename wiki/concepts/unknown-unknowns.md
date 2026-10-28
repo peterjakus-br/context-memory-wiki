@@ -2,7 +2,7 @@
 title: "Unknown unknowns (in agent context)"
 type: concept
 created: 2026-10-22
-updated: 2026-10-22
+updated: 2026-10-28
 tags: [failure-mode, context-management]
 sources: [actor-gatherer-framework-blog, repo-ucbepic-actor-gatherer]
 confidence: medium
@@ -32,5 +32,6 @@ against agent-driven retrieval.
 ## Related
 - [[tool-based-context-management]] — vulnerable to it, per [[actor-gatherer-framework-blog]]
 - [[proactive-context-management]] — the proposed remedy
+- [[evidence-coverage-and-utilization]] — measures how often needed evidence is surfaced at all (inference: a coverage miss is where unknown unknowns would show up)
 - [[swe-bench]], [[birdinteract]] — planted-specification tasks that probe
   it

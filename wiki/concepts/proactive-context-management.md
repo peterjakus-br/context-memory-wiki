@@ -2,9 +2,9 @@
 title: "Proactive context management"
 type: concept
 created: 2026-10-22
-updated: 2026-10-22
+updated: 2026-10-28
 tags: [context-management, architecture]
-sources: [actor-gatherer-framework-blog, actor-gatherer-docs, repo-ucbepic-actor-gatherer]
+sources: [actor-gatherer-framework-blog, actor-gatherer-docs, repo-ucbepic-actor-gatherer, raw-rag-naive-rag-agentic-memory]
 confidence: medium
 ---
 Proactive context management means that a component other than the acting
@@ -33,6 +33,10 @@ group of authors so far.
   database-path hint lets the agent query full history as a fallback
   ([[repo-ucbepic-actor-gatherer]]). The docs' policy contract: `read` "runs before every model call"
   ([[actor-gatherer-docs]]).
+- A related result on the write side of memory: adding LLM-driven processing between history and reader (atomic-fact extraction, summaries, graph links) lowered accuracy and raised ingestion cost on MemoryAgentBench (GPT-4o-mini reader: -19.62, -5.81 and -5.78 points; 21.6 to 109.3M LLM tokens against none), so extra LLM reasoning is not automatically a gain ([[raw-rag-naive-rag-agentic-memory]])
+
+## Contradictions
+- Whether extra LLM reasoning over context pays off: [[actor-gatherer-framework-blog]] claims higher accuracy from LLM reasoning over lateral and longitudinal information (+32 points single-agent on the authors' tasks), while [[raw-rag-naive-rag-agentic-memory]] finds LLM-built memory entries worse than raw retrieval on conversation benchmarks. (inference) They differ in stage (building context for each call against ingestion-time memory construction), task and reader; neither tests the other's setting.
 
 ## Related
 - [[actor-gatherer]] — the reference implementation

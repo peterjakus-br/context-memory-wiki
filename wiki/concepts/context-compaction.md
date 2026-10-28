@@ -26,5 +26,7 @@ retrieved summaries.
 
 ## Related
 - [[mem0]] — memory that complements compaction
+- [[retrieval-augmented-memory]] — retrieval over raw history as the alternative to lossy summaries
+- [[memory-mutation]] — rewriting stored memory, the write-side analogue
 - [[segment-based-context-policy]] — the alternative proposed
 - [[codex]], [[claude-code]], [[pi-coding-agent]], [[opencode]]
