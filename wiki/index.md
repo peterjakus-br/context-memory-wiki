@@ -3,7 +3,7 @@
 Catalog of every page in this wiki. Read this first when answering a query.
 Updated on every ingest. See [[overview]] for the big picture.
 
-Pages: 4 sources, 25 entities, 13 concepts, 0 synthesis.
+Pages: 5 sources, 25 entities, 13 concepts, 0 synthesis.
 
 ## Sources
 
@@ -13,6 +13,7 @@ Pages: 4 sources, 25 entities, 13 concepts, 0 synthesis.
 | [[actor-gatherer-docs]] | Actor-Gatherer documentation: `ag` CLI, config, harness integrations (hook vs proxy), Policy/Poller/Adaptor extension APIs. |
 | [[repo-ucbepic-actor-gatherer]] | Official Actor-Gatherer code (MIT, 076c26d): SQLite event store, ProactiveContextManager, file poller, 4 harnesses; no eval code. |
 | [[raw-rag-naive-rag-agentic-memory]] | Bao et al. (arXiv 2610.30755, 2026): dense retrieval plus rerank over raw history ranks first among compared memory systems in 6 of 7 settings; coverage and raw preservation explain it. |
+| [[repo-litmeb-raw-rag]] | Official Raw-RAG code (MIT, 9563919): one `rag` adapter in an EverCore-based evaluation harness, Mem0 add-only control, ablation adapters, paper profiles; no data or results; manifest-only. |
 
 ## Entities
 

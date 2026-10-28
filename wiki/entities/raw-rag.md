@@ -4,7 +4,7 @@ type: entity
 created: 2026-10-28
 updated: 2026-10-28
 tags: [memory-system, baseline, retrieval]
-sources: [raw-rag-naive-rag-agentic-memory]
+sources: [raw-rag-naive-rag-agentic-memory, repo-litmeb-raw-rag]
 ---
 Raw-RAG is the naive baseline proposed in [[raw-rag-naive-rag-agentic-memory]] to test whether agentic memory needs its complexity: [[retrieval-augmented-memory|retrieval]] over raw conversation history with only dense retrieval and a cross-encoder [[reranking|reranker]], leaving evidence interpretation and state reconstruction to the reader model. The paper offers it as a diagnostic baseline that memory systems should be compared against, not as a product.
 
@@ -20,8 +20,12 @@ Raw-RAG is the naive baseline proposed in [[raw-rag-naive-rag-agentic-memory]] t
 - **Cost**: no LLM calls at ingestion. On 10 MEME episodes and 110 questions (one outer worker, API-served models, no answer generation) Add-to-ready plus search takes 305.91 s against 1,561.97 to 9,301.48 s for the five systems timed; on a roughly one-million-token, 1,710-message conversation cumulative add time is 0.33 hours against 3.25 to 26.95 hours for the systems that finished ([[raw-rag-naive-rag-agentic-memory]])
 - Highest evidence coverage of the systems compared (45.29% on MemoryAgentBench, 76.35% on MEME) and highest conditional path coverage on MEME (62.34%); see [[evidence-coverage-and-utilization]] ([[raw-rag-naive-rag-agentic-memory]])
 - **Known limitations** (authors): offline conversation benchmarks only; raw storage grows with history and raises privacy concerns; no tested answer to operational needs such as exposing state to tools or erasing stored information ([[raw-rag-naive-rag-agentic-memory]])
+- **Code**: official implementation in `Litmeb/RAW-RAG` ([[repo-litmeb-raw-rag]]): the pipeline is one adapter (`system: rag`) in an evaluation harness; the code matches the paper's 256/32 windows, 128 candidates and top 15, reranks all 128 candidates in one call, fails loudly if the reranker response is malformed instead of falling back to dense order, and filters windows by session date before selecting candidates ([[repo-litmeb-raw-rag]])
+- The reader sees each window under a header such as `Memory N (chunk=…, similarity=…, rerank=…)`, which exposes the retrieval scores; the paper does not describe this ([[repo-litmeb-raw-rag]])
+- An independent reproduction of the LoCoMo result by the GoodMem team is reported in the repository README: 88.68 (GPT-4o-mini reader) and 93.48 (GPT-4.1-mini) against the paper's 89.07 and 93.70; the claim is not verified here ([[repo-litmeb-raw-rag]])
 
 ## Related
+- [[repo-litmeb-raw-rag]] — its code
 - [[retrieval-augmented-memory]] — the approach
 - [[memory-mutation]] — what it leaves out on purpose
 - [[mem0]], [[evermemos]], [[memos]], [[memu]], [[memmachine]], [[memora]], [[emem]], [[simplemem]] — systems it is compared with

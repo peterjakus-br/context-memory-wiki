@@ -4,7 +4,7 @@ type: overview
 created: 2026-10-22
 updated: 2026-10-28
 tags: [overview]
-sources: [actor-gatherer-framework-blog, actor-gatherer-docs, repo-ucbepic-actor-gatherer, raw-rag-naive-rag-agentic-memory]
+sources: [actor-gatherer-framework-blog, actor-gatherer-docs, repo-ucbepic-actor-gatherer, raw-rag-naive-rag-agentic-memory, repo-litmeb-raw-rag]
 ---
 # Overview
 
@@ -47,7 +47,7 @@ that rebuilds are rare and cheap.
 
 ## 4. Memory systems and how they are evaluated
 
-[[raw-rag-naive-rag-agentic-memory]] compares [[raw-rag]], a naive dense
+[[raw-rag-naive-rag-agentic-memory]] (code: [[repo-litmeb-raw-rag]]) compares [[raw-rag]], a naive dense
 retrieval plus [[reranking]] pipeline over raw conversation history, with
 twelve or more transformation-based memory systems (those with pages here:
 [[mem0]], [[evermemos]],
@@ -102,10 +102,13 @@ add to `raw/`:
   go both ways (ahead of [[raw-rag]] on MEME with DeepSeek-V4-Flash, behind it
   with GPT-4o-mini and on LoCoMo), which shows reader dependence but not a
   mechanism.
-- **Raw-RAG code and independent rerun.** The repository
-  github.com/Litmeb/RAW-RAG is not in `raw/`. An independent rerun of the
-  comparison, ReFind (a concurrent raw-chat-log system the paper cites but
-  does not compare), and the primary papers of the compared systems
+- **Independent rerun of Raw-RAG.** The official repository is ingested
+  ([[repo-litmeb-raw-rag]]); it ships no data or per-question results, so
+  nothing in `raw/` lets the numbers be checked. Its README reports one
+  independent reproduction of LoCoMo only (GoodMem, 88.68 and 93.48 against
+  89.07 and 93.70, unverified). A rerun on the other benchmarks, ReFind (a
+  concurrent raw-chat-log system the paper cites but does not compare), and
+  the primary papers of the compared systems
   ([[evermemos]], [[memos]], [[memu]], [[memmachine]], [[memora]], [[emem]],
   [[simplemem]]) would show how far the result generalises.
 - **Governed, multi-user memory.** The paper lists exposing authoritative state

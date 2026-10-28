@@ -53,6 +53,7 @@ Preprint (arXiv 2610.30755v1 [cs.AI], 22 Oct 2026, no venue stated) by Zhengye B
 - [[evidence-coverage-and-utilization]] — the diagnostic decomposition
 
 ## Open questions
+- Code vs paper: the official repository is ingested as [[repo-litmeb-raw-rag]].
 - The comparison is run by the authors of Raw-RAG. For LoCoMo and LongMemEval, published baseline scores are retained from other papers and Raw-RAG is measured in this study under settings the authors say are aligned (Appendix A); Table 3 pairs Raw-RAG's text-embedding-3-small run with some baselines taken from Qwen3-setting papers (for example EverMemOS 86.76 equals its Table 11 value). The matched-setting tables A.1–A.2 show the same ordering, but baselines were not rerun by an independent party.
 - The paper reports that Mem0's published GPT-4o-mini LoCoMo category scores weight to 62.14 rather than the published overall 66.88 (Appendix A.1.2); the tables keep both. Which is right is not settled.
 - LoCoMo's judge is generous by design ("as long as it touches on the same topic as the gold answer, it should be counted as CORRECT") and the historical records cannot separate format failures from WRONG judgments (zero-score counts of 252–505 of 4,620 judgments per condition, Appendix G.3). Absolute LoCoMo numbers are therefore soft; the paper does not test significance for the main tables.
